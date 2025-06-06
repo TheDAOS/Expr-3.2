@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %} Insert {% endblock title %}
+
+{% block content %}
+
+<!-- row 1 -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="widget-box-middle bg-body-tertiary">
+        <form method="POST" id="insert" class="needs-validation" novalidate>
+
+          {% csrf_token %}
+          {{form.as_p}}
+          {% comment %}         
+          <div class="form-group my-3">
+              <label for="{{ form.categories_name.id_for_label }}">Categories Name</label>
+              <input type="text" class="form-control" id="{{ form.categories_name.auto_id }}" name="{{ form.categories_name.name }}" placeholder="Categories Name" required>
+  
+              {% if form.categories_name.errors %}
+                      <div class="invalid-feedback">
+                          {{ form.categories_name.errors|join:", " }}
+                      </div>
+              {% endif %}
+  
+          </div>
+          <div class="form-group my-3">
+              <label for="{{ form.amount.id_for_label }}">Amount</label>
+              <div class=" input-group">
+              <span class="input-group-text">$</span>
+              <input type="text" class="form-control" aria-label="Dollar" id="{{ form.amount.auto_id }}" name="{{ form.amount.name }}" placeholder="Amount" required>
+              </div>
+  
+              {% if form.amount.errors %}
+                      <div class="invalid-feedback">
+                          {{ form.amount.errors|join:", " }}
+                      </div>
+              {% endif %}
+  
+          </div>
+          <div class="form-group my-3">
+              <label for="{{ form.date.id_for_label }}">Date</label>
+              <input type="date" class="form-control" id="{{ form.date.id_for_label }}" name="{{ form.date.name }}" required>
+  
+              {% if form.date.errors %}
+                      <div class="invalid-feedback">
+                          {{ form.date.errors|join:", " }}
+                      </div>
+              {% endif %}
+  
+          </div>
+          <div class="form-group my-3">
+              <label for="{{ form.description.id_for_label }}">Description</label>
+              <input type="text" class="form-control" id="{{ form.description.auto_id }}" name="{{ form.description.name }}" placeholder="Description">
+  
+              {% if form.description.errors %}
+                      <div class="invalid-feedback">
+                          {{ form.description.errors|join:", " }}
+                      </div>
+              {% endif %}
+  
+          </div>
+          <div class="form-group my-4">
+  
+              <div class="input-group">
+                  <label class="input-group-text" for="{{ form.income.id_for_label }}">Type</label>
+                  <select class="form-select" id="{{ form.income.id_for_label }}" name="{{ form.income.name }}">
+                  <option value="1" selected>Income</option>
+                  <option value="0">Expense</option>
+                  </select>
+              </div>
+  
+              {% if form.categories_name.errors %}
+                      <div class="invalid-feedback">
+                          {{ form.categories_name.errors|join:", " }}
+                      </div>
+              {% endif %}
+      
+              <div class="invalid-feedback">
+                  Please provide a valid user ID.
+              </div>
+          </div>
+  
+            {% endcomment %}
+  
+          <!-- <div class="form-group my-4">
+            <div class="row">
+              <div class="col-1 me-0 pe-0">
+                <button type="button" class="btn btn-secondary btn-grad" data-bs-dismiss="modal">Close</button>
+              </div>
+              <div class="col-1 mx-0 px-0">
+                <button type="submit" class="btn btn-grad">Add</button>
+              </div>
+            </div>
+          </div>  -->
+
+          <div class="form-group my-4" style="display: flex;">
+            <button type="rest" class="btn-grad" style="filter: grayscale(100%);">Rest</button>
+            <button type="submit" class="btn-grad">Add</button>
+          </div> 
+
+  
+          </form>
+  
+          </div>
+  
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,111 @@
+body {
+    /* background-color: lightgray; */
+    background-color: #eeeeee;
+    /* padding: 15px 15px 0px 15px; */
+
+    padding: 15px 70px 0px 70px;
+
+    /* for dark mode transition  */
+    transition: background-color 0.5s, color 0.5s;
+}
+
+
+.nav-button {
+    background-color: white; 
+    color: black;
+}
+
+.nav-button:hover {
+    /* background-color: #0a0809; */
+    color: white;
+    border-color: white;
+}
+
+
+/* nav bar bg */
+.navbar {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
+
+    border-radius: 10px;
+
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* nav bar text white */
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+
+/* Gradient button for body */
+.btn-grad {
+    /* background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%); */
+    /* background-image: linear-gradient(to right, #1A2980 0%, #26D0CE  51%, #1A2980  100%); */
+    /* background-image: linear-gradient(to right, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 51%, rgba(2,0,36,1) 100%);  */
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 18%, rgba(0,212,255,1) 51%, rgba(9,9,121,1) 68%, rgba(2,0,36,1) 1000%); 
+    margin: 10px;
+    /* padding: 15px 45px; */
+    padding: 10px 25px;
+    text-align: center;
+    /* text-transform: uppercase; */
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    /* box-shadow: 0 0 20px #eee; */
+    border-radius: 10px;
+    border: 0px;
+    display: block;
+    text-decoration: none;
+}
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+/* widget box */
+.widget-box-left {
+    /* background-color: white; */
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    margin-top: 10px;
+    /* margin-right: 10px; */
+}
+
+.widget-box-right {
+    /* background-color: white; */
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    margin-top: 10px;
+    /* margin-left: 10px; */
+}
+
+.widget-box-middle {
+    /* background-color: white; */
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    margin-top: 10px;
+    /* 
+    margin-right: 10px;
+    margin-left: 10px;
+     */
+}
+
+.disabled-like-text{
+    color:gray;
+    opacity: 80%;
+}

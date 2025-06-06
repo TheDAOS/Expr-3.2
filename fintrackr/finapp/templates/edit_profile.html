@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Profile {% endblock title %}
+
+{% block content %}
+
+<!-- row 1 -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="widget-box-middle bg-body-tertiary">
+        <form method="POST" id="edit_profile" class="needs-validation" novalidate>
+
+          <div class="from-control my-2 mx-2 mb-3">
+              <h4> Form for Edit </h4>
+              <p> Inset data which needs to updated</p>
+          </div>
+
+          <img src="{{user.profile_picture.url}}" style="border-radius: 100%;" width="150" height="150">
+
+          {% csrf_token %}
+
+          {% if is_save %}
+          <div class="alert alert-success" role="alert">
+              Successfully edited 
+          </div>
+          {% endif %}
+
+          <div class="from-control my-2">
+            <label class="mx-1" for="{{ form.name.id_for_label }}">Email</label>
+            <input type="Email" class="form-control" name="{{ form.name.name }}" placeholder="{{ user.name }}" value="{{ form.name.value|default:'' }}">
+          </div>
+
+          <div class="from-control my-2">
+            <label class="mx-1" for="{{ form.email.id_for_label }}">Email</label>
+            <input type="Email" class="form-control" name="{{ form.email.name }}" placeholder="{{ user.email }}" value="{{ form.email.value|default:'' }}">
+          </div>
+
+          <div class="from-control my-2">
+            <label class="mx-1" for="{{ form.password.id_for_label }}">Password</label>
+            <input type="password" class="form-control" name="{{ form.password.name }}" placeholder="{{ user.password }}" value="{{ form.password.value|default:'' }}">
+          </div>
+
+          <div class="form-group my-4" style="display: flex;">
+            <button type="rest" class="btn-grad" style="filter: grayscale(100%);">Rest</button>
+            <button type="submit" class="btn-grad">Conform</button>
+          </div> 
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

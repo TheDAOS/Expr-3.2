@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit {% endblock title %}
+
+{% block content %}
+
+<!-- row 1 -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="widget-box-middle bg-body-tertiary">
+        <form method="POST" id="edit" class="needs-validation" novalidate>
+
+          <div class="from-control my-2 mx-2 mb-3">
+              <h4> Form for Edit </h4>
+          </div>
+  
+          {% csrf_token %}
+  
+          {% comment %} {{ form.as_p }} {% endcomment %}
+  
+          {% if is_save %}
+          <div class="alert alert-success" role="alert">
+              Successfully edited 
+          </div>
+          {% endif %}
+  
+          <div class="from-control my-2">
+              <label class="mx-1" for="{{ form.categories_name.id_for_label }}">Categories</label>
+              <input type="text" class="form-control" name="{{ form.categories_name.name }}" placeholder="{{ expense.categories_name }}" value="{{ form.categories_name.value|default:'' }}">
+          </div>
+  
+          <div class="from-control my-2">
+              <label class="mx-1" for="{{ form.amount.id_for_label }}">Amount</label>
+              <input type="number" class="form-control" name="{{ form.amount.name }}" step="1.00" placeholder="{{ expense.amount }}" value="{{ form.amount.value|default:'' }}">
+          </div>
+
+          <!-- currenty not working -->
+          <!--
+          <div class="from-control my-2">
+              <label class="mx-1" for="{{ form.date.id_for_label }}">Date</label>
+              <input type="date" class="form-control" name="{{ form.date.name }}" placeholder="{{ expense.date }}" value="{{ form.date.value|default:'' }}">
+          </div>
+          -->
+  
+          <div class="from-control my-2">
+              <label class="mx-1" for="{{ form.description.id_for_label }}">Description</label>
+              <input type="text" class="form-control" name="{{ form.description.name }}" placeholder="{{ expense.description }}" value="{{ form.description.value|default:'' }}">
+          </div>
+  
+          <div class="from-control my-2">
+              <label class="mx-1" for="{{ form.income.id_for_label }}">Type</label>
+              <input type="text" class="form-control" name="{{ form.income.name }}" placeholder="{{ expense.income }}" value="{{ form.income.value|default:'' }}">
+          </div>
+  
+          {% comment %}
+          <div class="alert alert-danger" role="alert">
+              {{ form.categories_name.errors }}
+              {{ form.amount.errors }}
+              {{ form.date.errors }}
+              {{ form.description.errors }}
+              {{ form.income.errors }}
+          </div> 
+          {% endcomment %}
+          
+          <div class="form-group my-4" style="display: flex;">
+              <button type="rest" class="btn-grad" style="filter: grayscale(100%);">Rest</button>
+              <button type="submit" class="btn-grad">Conform</button>
+          </div> 
+  
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

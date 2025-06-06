@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+
+<!-- row 1 -->
+<div class="container-fluid">
+  <div class="row">
+
+    <!--Total Expense-->
+    <div class="col-6">
+      <div class="widget-box-left bg-body-tertiary">
+
+        <div>
+          {{ expense_sum }} <span class="disabled-like-text">/ {{ income_sum }}</span>
+        </div>
+
+        <div class="disabled-like-text">
+          Expense / Income
+        </div>
+
+        {% if over_expense %}
+          <div class="progress my-2" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-danger" style="width: {{ percentage_amount }}%">Over Expenses  {{ percentage_amount }} % </div>
+          </div>
+        {% else %}
+          <div class="progress  my-2" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: {{ percentage_amount }}%"> {{ percentage_amount }} % </div>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+
+    <!--Food Expense-->
+    {% if food_exist %}
+    <div class="col-6">
+      <div class="widget-box-right bg-body-tertiary">
+
+        <div>
+          {{ food_sum }} <span class="disabled-like-text">/ {{ expense_sum }}</span>
+        </div>
+
+        <div class="disabled-like-text">
+          Food / Total Expenses
+        </div>
+
+        <div class="progress my-2" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: {{ percentage_food }}%">{{ percentage_food }} %</div>
+        </div>
+
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+
+<!-- row 2 -->
+<div class="container-fluid">
+  <div class="row">
+
+    <!--Bills Expense-->
+    {% if bills_exist %}
+    <div class="col-6">
+      <div class="widget-box-left bg-body-tertiary">
+
+        <div>
+          {{ bills_sum }} <span class="disabled-like-text">/ {{ expense_sum }}</span>
+        </div>
+
+        <div class="disabled-like-text">
+          Bills / Total Expenses
+        </div>
+
+        <div class="progress my-2" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: {{ percentage_bills }}%"> {{ percentage_bills }} % </div>
+        </div>
+
+      </div>
+    </div>
+    {% endif %}
+
+    <!--Other Expense-->
+    {% if other_exist %}
+    <div class="col-6">
+      <div class="widget-box-left bg-body-tertiary">
+
+        <div>
+          {{ other_sum }} <span class="disabled-like-text">/ {{ expense_sum }}</span>
+        </div>
+
+        <div class="disabled-like-text">
+          Others / Total Expenses
+        </div>
+
+        <div class="progress my-2" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: {{ percentage_other }}%"> {{ percentage_other }} % </div>
+        </div>
+
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}
